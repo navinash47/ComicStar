@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from fastapi import Body, FastAPI
+from fastapi import Body, FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 
-from .llm_service import parse_script_with_llm
+from .llm_service import ParseScriptLLMError, parse_script_with_llm
 from .schemas import ParseScriptRequest, ParseScriptResponse, ParsedScript
 
 app = FastAPI(title="ComicStar Backend", version="0.1.0")
@@ -19,7 +19,17 @@ def health() -> dict:
 
 @app.post("/parse-script", response_model=ParseScriptResponse)
 def parse_script(payload: ParseScriptRequest) -> ParseScriptResponse:
-    parsed = parse_script_with_llm(payload.raw_script)
+    try:
+        parsed = parse_script_with_llm(payload.raw_script)
+    except ParseScriptLLMError as e:
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "error": e.message,
+                "raw_model_output": e.raw_output,
+                "validation_errors": e.validation_errors,
+            },
+        ) from e
     return ParseScriptResponse(data=parsed)
 
 
