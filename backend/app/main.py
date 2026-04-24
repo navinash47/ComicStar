@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, Union
+from typing import Any, Dict
 
 from fastapi import Body, FastAPI
 from fastapi.responses import JSONResponse
@@ -23,10 +23,10 @@ def parse_script(payload: ParseScriptRequest) -> ParseScriptResponse:
     return ParseScriptResponse(data=parsed)
 
 
-@app.post("/validate-script")
+@app.post("/validate-script", response_model=None)
 def validate_script(
     body: Dict[str, Any] = Body(..., description="JSON object matching ParsedScript"),
-) -> Union[JSONResponse, dict[str, Any]]:
+) -> Any:
     """
     Validate a comic script document against the ParsedScript model.
     On failure, returns 422 with Pydantic's error list (e.errors()).
