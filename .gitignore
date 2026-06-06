@@ -1,0 +1,12 @@
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.gguf
+ComfyUI/output/
+ComfyUI/input/
+models/
+outputs/
+__pycache__/
+.env
