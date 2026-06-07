@@ -1,8 +1,12 @@
+import hashlib
 import os
+import random
 import re
 import json
 import math
 from pathlib import Path
+
+import folder_paths
 
 import numpy as np
 from PIL import Image
@@ -23,10 +27,14 @@ _WANDB_RUN = None
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+AYAKA_DATASET_DIR = "/workspace/datasets/ayaka_psychic_girl"
+AYAKA_DESCRIPTIONS_JSON = f"{AYAKA_DATASET_DIR}/ayaka_descriptions.json"
+AYAKA_STRUCTURED_EVAL_JSON = f"{AYAKA_DATASET_DIR}/structured_eval.json"
+AYAKA_EVAL_REPORTS_DIR = f"{AYAKA_DATASET_DIR}/eval_reports"
+
 
 def get_clip():
     global _CLIP_MODEL, _CLIP_PROCESSOR
-
     if _CLIP_MODEL is None:
         model_name = "openai/clip-vit-large-patch14"
         _CLIP_PROCESSOR = CLIPProcessor.from_pretrained(model_name)
@@ -36,13 +44,26 @@ def get_clip():
     return _CLIP_MODEL, _CLIP_PROCESSOR
 
 
-def get_wandb_run(project: str, run_name: str):
+def get_wandb_run(project: str, run_name: str, api_key: str = ""):
     global _WANDB_RUN
 
     if not project:
         return None
 
-    if _WANDB_RUN is None:
+    if _WANDB_RUN is not None:
+        return _WANDB_RUN
+
+    key = (api_key or os.environ.get("WANDB_API_KEY", "")).strip()
+    if not key:
+        print(
+            "[Phase0] wandb logging skipped: no API key. "
+            "Set wandb_api_key on the node or export WANDB_API_KEY."
+        )
+        return None
+
+    os.environ["WANDB_API_KEY"] = key
+
+    try:
         _WANDB_RUN = wandb.init(
             project=project,
             name=run_name if run_name else None,
@@ -51,6 +72,9 @@ def get_wandb_run(project: str, run_name: str):
                 "clip_model": "openai/clip-vit-large-patch14",
             },
         )
+    except Exception as exc:
+        print(f"[Phase0] wandb init failed: {exc}")
+        return None
 
     return _WANDB_RUN
 
@@ -520,6 +544,98 @@ QUERY_PREFIX = {
 }
 
 
+PHASE0_IMAGE_NAME_RE = re.compile(r"^(.+?)_(\d+)_\.png$", re.IGNORECASE)
+
+
+def phase0_index_to_filename(prefix: str, image_index: int) -> str:
+    """
+    ComfyUI SaveImage counters are 1-based in filenames:
+    image_index 0 -> Phase0Inf_00001_.png
+    """
+    return f"{prefix}_{image_index + 1:05d}_.png"
+
+
+def phase0_filename_to_index(filename: str, prefix: str):
+    match = PHASE0_IMAGE_NAME_RE.match(filename)
+    if not match or match.group(1) != prefix:
+        return None
+    return int(match.group(2)) - 1
+
+
+def list_phase0_image_indices(image_dir: str, prefix: str = "Phase0Inf"):
+    indices = []
+    directory = Path(image_dir)
+    if not directory.is_dir():
+        return indices
+
+    for path in sorted(directory.glob(f"{prefix}_*.png")):
+        idx = phase0_filename_to_index(path.name, prefix)
+        if idx is not None:
+            indices.append(idx)
+
+    return sorted(indices)
+
+
+def resolve_phase0_image_path(
+    image_dir: str,
+    image_index: int,
+    prefix: str = "Phase0Inf",
+):
+    directory = Path(image_dir)
+    if not directory.is_dir():
+        raise FileNotFoundError(f"Image directory not found: {image_dir}")
+
+    image_path = directory / phase0_index_to_filename(prefix, image_index)
+    if image_path.is_file():
+        return image_path
+
+    available = list_phase0_image_indices(image_dir, prefix)
+    if available:
+        raise FileNotFoundError(
+            f"No image for index {image_index} "
+            f"(expected {image_path.name}). "
+            f"Available indices: {available[0]}..{available[-1]} "
+            f"({len(available)} files in {image_dir})"
+        )
+
+    raise FileNotFoundError(
+        f"No image for index {image_index} "
+        f"(expected {image_path.name}) in {image_dir}"
+    )
+
+
+def pil_to_comfy_tensor(pil_image: Image.Image):
+    img = pil_image.convert("RGB")
+    arr = np.array(img).astype(np.float32) / 255.0
+    return torch.from_numpy(arr)[None,]
+
+
+def save_temp_preview(image_tensor, filename_prefix="phase0_eval"):
+    output_dir = folder_paths.get_temp_directory()
+    os.makedirs(output_dir, exist_ok=True)
+
+    suffix = "_temp_" + "".join(random.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(5))
+    file = f"{filename_prefix}{suffix}_00001_.png"
+    pil_image = comfy_tensor_to_pil(image_tensor)
+    pil_image.save(os.path.join(output_dir, file), compress_level=1)
+
+    return [{
+        "filename": file,
+        "subfolder": "",
+        "type": "temp",
+    }]
+
+
+def load_phase0_image_by_index(
+    image_dir: str,
+    image_index: int,
+    prefix: str = "Phase0Inf",
+):
+    image_path = resolve_phase0_image_path(image_dir, image_index, prefix)
+    pil_image = Image.open(image_path)
+    return pil_to_comfy_tensor(pil_image), str(image_path)
+
+
 def comfy_tensor_to_pil(image_tensor):
     """
     ComfyUI IMAGE is usually a torch tensor:
@@ -738,10 +854,10 @@ class Phase0DescriptionJSONBuilder:
         return {
             "required": {
                 "input_json_path": ("STRING", {
-                    "default": "/workspace/manhwa_phase0/descriptions.json"
+                    "default": AYAKA_DESCRIPTIONS_JSON,
                 }),
                 "output_json_path": ("STRING", {
-                    "default": "/workspace/manhwa_phase0/structured_eval.json"
+                    "default": AYAKA_STRUCTURED_EVAL_JSON,
                 }),
             }
         }
@@ -756,6 +872,59 @@ class Phase0DescriptionJSONBuilder:
         return (output_json_path,)
 
 
+class Phase0LoadImageByIndex:
+    @classmethod
+    def INPUT_TYPES(cls):
+        default_dir = "/workspace/datasets/ayaka_psychic_girl/output_phase0_inf"
+        available = list_phase0_image_indices(default_dir)
+        max_index = available[-1] if available else 49
+
+        return {
+            "required": {
+                "image_index": ("INT", {
+                    "default": available[0] if available else 0,
+                    "min": 0,
+                    "max": max(max_index, 0),
+                }),
+                "image_dir": ("STRING", {
+                    "default": default_dir,
+                }),
+                "filename_prefix": ("STRING", {
+                    "default": "Phase0Inf",
+                }),
+            }
+        }
+
+    RETURN_TYPES = ("IMAGE", "INT", "STRING")
+    RETURN_NAMES = ("image", "image_index", "image_path")
+    FUNCTION = "load"
+    CATEGORY = "phase0/evaluation"
+
+    def load(self, image_index, image_dir, filename_prefix):
+        image_tensor, image_path = load_phase0_image_by_index(
+            image_dir,
+            image_index,
+            filename_prefix,
+        )
+        return (image_tensor, image_index, image_path)
+
+    @classmethod
+    def IS_CHANGED(cls, image_index, image_dir, filename_prefix):
+        try:
+            image_path = resolve_phase0_image_path(
+                image_dir,
+                image_index,
+                filename_prefix,
+            )
+        except FileNotFoundError:
+            return float("nan")
+
+        digest = hashlib.sha256()
+        with open(image_path, "rb") as f:
+            digest.update(f.read())
+        return digest.hexdigest()
+
+
 class Phase0ImageAttributeEvaluator:
     @classmethod
     def INPUT_TYPES(cls):
@@ -763,7 +932,7 @@ class Phase0ImageAttributeEvaluator:
             "required": {
                 "image": ("IMAGE",),
                 "structured_json_path": ("STRING", {
-                    "default": "/workspace/manhwa_phase0/structured_eval.json"
+                    "default": AYAKA_STRUCTURED_EVAL_JSON,
                 }),
                 "image_index": ("INT", {
                     "default": 0,
@@ -776,11 +945,15 @@ class Phase0ImageAttributeEvaluator:
                 "wandb_run_name": ("STRING", {
                     "default": "ayaka_lora_eval_v1"
                 }),
+                "wandb_api_key": ("STRING", {
+                    "default": "",
+                    "multiline": False,
+                }),
                 "save_report_path": ("STRING", {
-                    "default": "/workspace/manhwa_phase0/eval_reports"
+                    "default": AYAKA_EVAL_REPORTS_DIR,
                 }),
                 "log_to_wandb": ("BOOLEAN", {
-                    "default": True
+                    "default": False
                 }),
             }
         }
@@ -788,6 +961,7 @@ class Phase0ImageAttributeEvaluator:
     RETURN_TYPES = ("FLOAT", "STRING")
     RETURN_NAMES = ("overall_score", "report_json")
     FUNCTION = "evaluate"
+    OUTPUT_NODE = True
     CATEGORY = "phase0/evaluation"
 
     def evaluate(
@@ -797,6 +971,7 @@ class Phase0ImageAttributeEvaluator:
         image_index,
         wandb_project,
         wandb_run_name,
+        wandb_api_key,
         save_report_path,
         log_to_wandb
     ):
@@ -823,59 +998,79 @@ class Phase0ImageAttributeEvaluator:
         with open(report_path, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)
 
+        wandb_status = "disabled"
         if log_to_wandb:
-            run = get_wandb_run(wandb_project, wandb_run_name)
+            run = get_wandb_run(wandb_project, wandb_run_name, wandb_api_key)
+            if run is None:
+                wandb_status = "skipped (no API key or init failed)"
+            else:
+                log_data = {
+                    "image_index": image_index,
+                    "overall_score": report["overall_score"],
+                    "generated_image": wandb.Image(
+                        pil_image,
+                        caption=report.get("raw_description", "")
+                    )
+                }
 
-            log_data = {
-                "image_index": image_index,
-                "overall_score": report["overall_score"],
-                "generated_image": wandb.Image(
-                    pil_image,
-                    caption=report.get("raw_description", "")
-                )
-            }
+                for row in report["checks"]:
+                    key = f"attr/{row['type']}"
+                    log_data[key] = row["score"]
 
-            for row in report["checks"]:
-                key = f"attr/{row['type']}"
-                log_data[key] = row["score"]
-
-            # Also log full table
-            table = wandb.Table(
-                columns=[
-                    "image_index",
-                    "type",
-                    "expected",
-                    "predicted",
-                    "score",
-                    "weight",
-                    "method"
-                ]
-            )
-
-            for row in report["checks"]:
-                table.add_data(
-                    image_index,
-                    row["type"],
-                    row["expected"],
-                    row["predicted"],
-                    row["score"],
-                    row["weight"],
-                    row["method"]
+                table = wandb.Table(
+                    columns=[
+                        "image_index",
+                        "type",
+                        "expected",
+                        "predicted",
+                        "score",
+                        "weight",
+                        "method"
+                    ]
                 )
 
-            log_data["attribute_table"] = table
+                for row in report["checks"]:
+                    table.add_data(
+                        image_index,
+                        row["type"],
+                        row["expected"],
+                        row["predicted"],
+                        row["score"],
+                        row["weight"],
+                        row["method"]
+                    )
 
-            run.log(log_data, step=image_index)
+                log_data["attribute_table"] = table
+                run.log(log_data, step=image_index)
+                wandb_status = f"logged to {wandb_project}/{wandb_run_name}"
 
-        return (float(report["overall_score"]), json.dumps(report, indent=2))
+        overall_score = float(report["overall_score"])
+        report_json = json.dumps(report, indent=2)
+        preview_text = (
+            f"image_index: {image_index}\n"
+            f"overall_score: {overall_score:.4f}\n"
+            f"report_path: {report_path}\n"
+            f"wandb: {wandb_status}"
+        )
+
+        return {
+            "ui": {
+                "images": save_temp_preview(image, f"phase0_eval_{image_index:03d}"),
+                "text": (preview_text,),
+            },
+            "result": (overall_score, report_json),
+        }
 
 
 NODE_CLASS_MAPPINGS = {
     "Phase0DescriptionJSONBuilder": Phase0DescriptionJSONBuilder,
+    "Phase0LoadImageByIndex": Phase0LoadImageByIndex,
     "Phase0ImageAttributeEvaluator": Phase0ImageAttributeEvaluator,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "Phase0DescriptionJSONBuilder": "Phase0 Description JSON Builder",
+    "Phase0LoadImageByIndex": "Phase0 Load Image By Index",
     "Phase0ImageAttributeEvaluator": "Phase0 Image Attribute Evaluator",
 }
+

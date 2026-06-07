@@ -1,0 +1,2442 @@
+{
+  "version": "phase0_eval_v1",
+  "description_count": 24,
+  "items": [
+    {
+      "image_index": 0,
+      "image_id": "image_000",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair with a soft reddish brown tint, straight bangs, warm brown eyes, expressive face, trendy high school girl, slightly gyaru vibe, school uniform, standing in a school hallway, soft daylight, romance anime style, clean line art",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "high school girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "fashion_vibe",
+          "expected": "slightly gyaru vibe",
+          "weight": 0.6,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_tint",
+          "expected": "reddish brown hair tint",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "school hallway",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft daylight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "clean line art",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 1,
+      "image_id": "image_001",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, stylish teenage girl, school uniform, smiling confidently, standing near classroom window, soft afternoon light, romance anime style, clean line art",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "teenage girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "confident smile",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "classroom window",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft afternoon light",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "clean line art",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 2,
+      "image_id": "image_002",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, face-framing strands, warm brown eyes, expressive face, school uniform, sitting alone in a classroom, thoughtful expression, sunset lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "face-framing hair strands",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "thoughtful expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "sitting alone",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "classroom",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "sunset lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 3,
+      "image_id": "image_003",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, slightly gyaru vibe, school uniform, walking on a rainy street, holding an umbrella, emotional expression, cinematic lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "fashion_vibe",
+          "expected": "slightly gyaru vibe",
+          "weight": 0.6,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "emotional expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "walking",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "rainy street",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "cinematic lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "prop",
+          "expected": "umbrella",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 4,
+      "image_id": "image_004",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, stylish high school girl, casual hoodie and skirt, sitting in a warm cafe, sad expression, soft indoor lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "high school girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "casual hoodie",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "sad expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "sitting",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "warm cafe",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft indoor lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 5,
+      "image_id": "image_005",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, expressive face, school uniform, close-up portrait, blushing lightly, looking to the side, soft lighting, romance anime style, detailed eyes",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "blushing",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "camera",
+          "expected": "close-up portrait",
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "quality_detail",
+          "expected": "detailed eyes",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 6,
+      "image_id": "image_006",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, face-framing strands, warm brown eyes, trendy teenage girl, school rooftop background, wind blowing hair, determined expression, sunset sky, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "teenage girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "face-framing hair strands",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_motion",
+          "expected": "wind blowing hair",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "determined expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "school rooftop",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "sunset sky",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 7,
+      "image_id": "image_007",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, face-framing strands, warm brown eyes, trendy teenage girl, school rooftop background, wind blowing hair, determined expression, sunset sky, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "teenage girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "face-framing hair strands",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_motion",
+          "expected": "wind blowing hair",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "determined expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "school rooftop",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "sunset sky",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 8,
+      "image_id": "image_008",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, slightly gyaru vibe, school uniform, surprised expression, standing in a corridor, bright daylight, clean line art, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "fashion_vibe",
+          "expected": "slightly gyaru vibe",
+          "weight": 0.6,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "surprised expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "school corridor",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "bright daylight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "clean line art",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 9,
+      "image_id": "image_009",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, stylish high school girl, school uniform, crossing arms, confident expression, classroom background, soft daylight, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "high school girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "confident expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "crossing arms",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "classroom",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft daylight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 10,
+      "image_id": "image_010",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair with reddish tint, warm brown eyes, expressive face, casual sweater, sitting on a bed, quiet night mood, soft moonlight, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_tint",
+          "expected": "reddish brown hair tint",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "casual sweater",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "bedroom",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft moonlight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "mood",
+          "expected": "quiet night mood",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 11,
+      "image_id": "image_011",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, stylish schoolgirl, school uniform, close-up face, angry expression, dramatic lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "schoolgirl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "angry expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "camera",
+          "expected": "close-up face",
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "dramatic lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 12,
+      "image_id": "image_012",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, face-framing strands, warm brown eyes, school uniform, laughing brightly, walking outdoors near school gate, daylight, romance anime style, clean line art",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "face-framing hair strands",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "laughing brightly",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "walking",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "school gate",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "daylight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "clean line art",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 13,
+      "image_id": "image_013",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, expressive face, school uniform, sitting under a tree, gentle smile, spring atmosphere, soft natural lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "gentle smile",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "under a tree",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft natural lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "mood",
+          "expected": "spring atmosphere",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 14,
+      "image_id": "image_014",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, face-framing strands, warm brown eyes, stylish high school girl, school uniform, running outdoors, energetic pose, bright sky, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "high school girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "face-framing hair strands",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "running",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 15,
+      "image_id": "image_015",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, expressive face, casual clothes, standing in a shrine path, calm expression, evening light, subtle supernatural atmosphere, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "casual clothes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "calm expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "shrine path",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "evening light",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "mood",
+          "expected": "subtle supernatural atmosphere",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 16,
+      "image_id": "image_016",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, school uniform, crying softly, close-up portrait, emotional scene, dramatic soft lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "crying softly",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "camera",
+          "expected": "close-up portrait",
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "mood",
+          "expected": "emotional scene",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 17,
+      "image_id": "image_017",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair with reddish brown tint, warm brown eyes, stylish teenage girl, school uniform, seated at a desk, reading a note, shy smile, classroom setting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "teenage girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_tint",
+          "expected": "reddish brown hair tint",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "shy smile",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "seated",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "classroom",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "prop",
+          "expected": "note",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 18,
+      "image_id": "image_018",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, expressive face, casual top and skirt, standing in a cozy cafe, looking out the window, reflective mood, warm lighting, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "casual top and skirt",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "reflective mood",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "cozy cafe",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "warm lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 19,
+      "image_id": "image_019",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, face-framing strands, warm brown eyes, slightly gyaru vibe, school uniform, hands on hips, playful expression, school courtyard background, daylight, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "fashion_vibe",
+          "expected": "slightly gyaru vibe",
+          "weight": 0.6,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "face-framing hair strands",
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "playful expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "hands on hips",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "school courtyard",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "daylight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 20,
+      "image_id": "image_020",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, stylish high school girl, close-up portrait, soft smile, blush, glowing sunset lighting, romance anime style, detailed face",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "high school girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "soft smile",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "camera",
+          "expected": "close-up portrait",
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "sunset lighting",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "quality_detail",
+          "expected": "detailed face",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 21,
+      "image_id": "image_021",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, school uniform, standing on a train platform, wind gently moving hair, waiting expression, evening atmosphere, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_motion",
+          "expected": "wind blowing hair",
+          "weight": 0.5,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "waiting expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "train platform",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "mood",
+          "expected": "evening atmosphere",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 22,
+      "image_id": "image_022",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, warm brown eyes, trendy teenage girl, casual hoodie, sitting on stairs, slightly annoyed expression, urban background, soft daylight, romance anime style",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "age_vibe",
+          "expected": "teenage girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "casual hoodie",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "annoyed expression",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "stairs",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "soft daylight",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    },
+    {
+      "image_index": 23,
+      "image_id": "image_023",
+      "trigger_word": "ayaka_psychic_girl",
+      "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair, straight bangs, warm brown eyes, expressive face, school uniform, standing beneath cherry blossoms, gentle smile, spring light, romance anime style, clean line art",
+      "checks": [
+        {
+          "type": "people_count",
+          "expected": "one girl",
+          "weight": 1.5,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "gender",
+          "expected": "girl",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "character_type",
+          "expected": "anime girl",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_length",
+          "expected": "medium-length hair",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_color",
+          "expected": "dark brown hair",
+          "weight": 1.3,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "hair_style",
+          "expected": "straight bangs",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "eye_color",
+          "expected": "brown eyes",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "outfit",
+          "expected": "school uniform",
+          "weight": 1.2,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "expression",
+          "expected": "gentle smile",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "pose_action",
+          "expected": "standing",
+          "weight": 1.0,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "location",
+          "expected": "cherry blossoms",
+          "weight": 1.1,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "lighting",
+          "expected": "spring light",
+          "weight": 0.8,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "style",
+          "expected": "romance anime style",
+          "weight": 0.8,
+          "method": "clip_absolute"
+        },
+        {
+          "type": "style",
+          "expected": "clean line art",
+          "weight": 0.7,
+          "method": "clip_absolute"
+        }
+      ],
+      "negative_checks": [
+        {
+          "type": "text_or_watermark",
+          "expected_absent": true,
+          "weight": 0.7,
+          "method": "clip_contrastive"
+        },
+        {
+          "type": "extra_people",
+          "expected_absent": true,
+          "weight": 0.9,
+          "method": "clip_contrastive"
+        }
+      ]
+    }
+  ]
+}

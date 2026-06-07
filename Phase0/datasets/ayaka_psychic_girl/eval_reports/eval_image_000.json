@@ -1,0 +1,153 @@
+{
+  "image_index": 0,
+  "image_id": "image_000",
+  "trigger_word": "ayaka_psychic_girl",
+  "raw_description": "ayaka_psychic_girl, 1girl, anime girl, medium-length dark brown hair with a soft reddish brown tint, straight bangs, warm brown eyes, expressive face, trendy high school girl, slightly gyaru vibe, school uniform, standing in a school hallway, soft daylight, romance anime style, clean line art",
+  "overall_score": 0.5904041158448774,
+  "checks": [
+    {
+      "type": "people_count",
+      "expected": "one girl",
+      "predicted": "one girl",
+      "score": 0.9213947057723999,
+      "weight": 1.5,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "gender",
+      "expected": "girl",
+      "predicted": "girl",
+      "score": 0.5195289254188538,
+      "weight": 1.0,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "character_type",
+      "expected": "anime girl",
+      "predicted": "anime girl",
+      "score": 0.5416333079338074,
+      "weight": 0.8,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "age_vibe",
+      "expected": "high school girl",
+      "predicted": "high school girl",
+      "score": 0.7158137391627212,
+      "weight": 0.8,
+      "method": "clip_absolute_fallback"
+    },
+    {
+      "type": "fashion_vibe",
+      "expected": "slightly gyaru vibe",
+      "predicted": "slightly gyaru vibe",
+      "score": 0.4306764446982173,
+      "weight": 0.6,
+      "method": "clip_absolute"
+    },
+    {
+      "type": "hair_length",
+      "expected": "medium-length hair",
+      "predicted": "medium-length hair",
+      "score": 0.8479552865028381,
+      "weight": 1.1,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "hair_color",
+      "expected": "dark brown hair",
+      "predicted": "dark brown hair",
+      "score": 0.948260486125946,
+      "weight": 1.3,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "hair_tint",
+      "expected": "reddish brown hair tint",
+      "predicted": "reddish brown hair tint",
+      "score": 0.630572936996612,
+      "weight": 0.5,
+      "method": "clip_absolute"
+    },
+    {
+      "type": "hair_style",
+      "expected": "straight bangs",
+      "predicted": "straight bangs",
+      "score": 0.23748473823070526,
+      "weight": 0.8,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "eye_color",
+      "expected": "brown eyes",
+      "predicted": "brown eyes",
+      "score": 0.6587744951248169,
+      "weight": 1.2,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "outfit",
+      "expected": "school uniform",
+      "predicted": "school uniform",
+      "score": 0.6520731449127197,
+      "weight": 1.2,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "pose_action",
+      "expected": "standing",
+      "predicted": "hands on hips",
+      "score": 0.039096295833587646,
+      "weight": 1.0,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "location",
+      "expected": "school hallway",
+      "predicted": "school corridor",
+      "score": 0.06995267421007156,
+      "weight": 1.1,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "lighting",
+      "expected": "soft daylight",
+      "predicted": "soft natural lighting",
+      "score": 0.11325490474700928,
+      "weight": 0.8,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "style",
+      "expected": "romance anime style",
+      "predicted": "romance anime style",
+      "score": 0.509024525025756,
+      "weight": 0.8,
+      "method": "clip_absolute"
+    },
+    {
+      "type": "style",
+      "expected": "clean line art",
+      "predicted": "clean line art",
+      "score": 0.42915395954714297,
+      "weight": 0.7,
+      "method": "clip_absolute"
+    },
+    {
+      "type": "text_or_watermark",
+      "expected": "absent",
+      "predicted": "clean",
+      "score": 0.9939070617037438,
+      "weight": 0.7,
+      "method": "clip_contrastive"
+    },
+    {
+      "type": "extra_people",
+      "expected": "absent",
+      "predicted": "clean",
+      "score": 0.998903652463407,
+      "weight": 0.9,
+      "method": "clip_contrastive"
+    }
+  ]
+}
